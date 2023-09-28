@@ -88,7 +88,7 @@ export const Phonebook = () => {
   const outFilter = getVisibleContacts();
   return (
     <DeskPhonebook>
-      <Section title={"Phonebook: HW-4 Hook"}>
+      <Section title={"Phonebook: HW-6 Redux"}>
         <Form
           onSubmit={onSubmitForm}
         />
