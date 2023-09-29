@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'; // ES6'
 import { List, ListItem, ItemText, ItemButton } from './ContactsList.styled';
-
+import { ImSearch } from 'react-icons/im';
 
 export const ContactsList = ({ contacts, onDelete }) => { 
   
