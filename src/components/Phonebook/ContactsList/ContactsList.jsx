@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'; // ES6'
 import { List, ListItem, ItemText, ItemButton } from './ContactsList.styled';
-import { ImSearch } from 'react-icons/im';
+import { BiTrash, BiXCircle, } from 'react-icons/bi';
 
 export const ContactsList = ({ contacts, onDelete }) => { 
   
@@ -17,7 +17,7 @@ export const ContactsList = ({ contacts, onDelete }) => {
         contacts.map(({ id, name, number }) =>
           <ListItem key={id}>
             <ItemText>{name + ': ' + number}</ItemText>
-            <ItemButton onClick={() => onDelete(id)}>Delete</ItemButton>
+            <BiXCircle onClick={() => onDelete(id)} />
           </ListItem>)
       }
     </List>
