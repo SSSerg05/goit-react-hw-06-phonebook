@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'; // ES6'
-import { List, ListItem, ItemText, ItemButton } from './ContactsList.styled';
-import { BiTrash, BiXCircle, } from 'react-icons/bi';
+import { List, ListItem, ItemText } from './ContactsList.styled';
+import { BiXCircle, } from 'react-icons/bi';
 
 export const ContactsList = ({ contacts, onDelete }) => { 
   
