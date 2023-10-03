@@ -3,7 +3,7 @@ import { MdClose } from 'react-icons/md';
 import PropTypes from 'prop-types'; // ES6'
 
 import { deleteContact, toggleCompleted, } from 'redux/contactsSlice';
-import { Name, Button, } from './Contact.styled';
+import { Card, Name, Button, Checkbox } from './Contact.styled';
 
 export const Contact = ({contact}) => {
   const dispatch = useDispatch();
@@ -13,18 +13,21 @@ export const Contact = ({contact}) => {
   const handleToggle = () => dispatch(toggleCompleted(id));
   
   return (
-    <div>
-      <input 
-        type="text"
-        checked={ selected }
-        onChange={ handleToggle } 
-      />
+    <Card>
+      <label>
+        <Checkbox 
+          type="checkbox"
+          value={ selected }
+          checked={ selected }
+          onChange={ handleToggle } 
+        />
+      </label>
       <Name>{ name + ': ' + number }</Name>
       <Button onClick={ handleDelete }>
         <MdClose size={24} />
       </Button>
       
-    </div>
+    </Card>
   )
 }
 

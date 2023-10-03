@@ -7,9 +7,9 @@ export const List = styled.ul`
   list-style: none;
 `
 export const ListItem = styled.li`
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   background-color: lightsteelblue;
 
   &:nth-of-type(odd) {
