@@ -16,11 +16,7 @@ export const ListItem = styled.li`
     background-color: lightcyan;
   }
 `
-export const ItemText = styled.p`
-  min-width: 250px;
-  margin: 0;
-  padding: 4px;
-`
+
 export const ItemButton = styled.button`
   display: inline-block;
   outline: 1px solid black;

@@ -20,7 +20,7 @@ const contactsSlice = createSlice({
             id: nanoid(),
             name, 
             number,
-            completed: false,
+            selected: false,
           },
         };
       },
@@ -34,7 +34,7 @@ const contactsSlice = createSlice({
     toggleCompleted(state, action) {
       for (const contact of state) {
         if (contact.id === action.payload) {
-          contact.completed = !contact.completed;
+          contact.selected = !contact.selected;
           break;
         }
       }
