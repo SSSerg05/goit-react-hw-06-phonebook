@@ -8,7 +8,7 @@ import { Card, Name, Button, Checkbox } from './Contact.styled';
 export const Contact = ({contact}) => {
   const dispatch = useDispatch();
 
-  const {id, name, number, selected} = contact;
+  const {id, name, number, selected=false} = contact;
   const handleDelete = () => dispatch(deleteContact(id));
   const handleToggle = () => dispatch(toggleCompleted(id));
   
@@ -17,7 +17,6 @@ export const Contact = ({contact}) => {
       <label>
         <Checkbox 
           type="checkbox"
-          value={ selected }
           checked={ selected }
           onChange={ handleToggle } 
         />
