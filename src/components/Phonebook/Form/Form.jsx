@@ -11,8 +11,10 @@ export const Form = () => {
     e.preventDefault();
     
     const form = e.target;
+    console.dir(form);
+
     dispatch(addContact({
-      name:form.elements.name.value, 
+      name: form.elements.name.value, 
       number: form.elements.number.value
     }));
 
