@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types'; // ES6'
 
 import { getContacts, getStatusFilter } from 'redux/selectors';
 import { statusFilters } from 'redux/constants';
@@ -10,7 +9,7 @@ const getVisibleContacts = (contacts, statusFilter) => {
   switch (statusFilter) {
     case statusFilters.active:
       return contacts.filter(contact => !contact.selected);
-    case statusFilters.completed:
+    case statusFilters.selected:
       return contacts.filter(contact => contact.selected);
     default:
       return contacts;
@@ -39,11 +38,3 @@ export const ContactsList = () => {
     </List>
   );
 }
-
-// ContactsList.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//     }).isRequired
-//   ).isRequired,
-// }

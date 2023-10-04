@@ -9,7 +9,7 @@ import { Filter } from "./Filter/Filter";
 import { Form } from "./Form/Form";
 
 // data
-import initialContacts from "../../data/contactsInitial.json";
+// import initialContacts from "../../data/contactsInitial.json";
 
 // style
 import { DeskPhonebook } from "./Phonebook.styled";
@@ -93,17 +93,14 @@ export const Phonebook = () => {
       </Section>
         
       <Section>
-        {/* <Filter
-          value={filter}
-          onFilter={onChangeFilter}
-        /> */}
+        <Filter
+          // value={filter}
+          // onFilter={onChangeFilter}
+        />
       </Section>
       
       <Section title={"Contacts"}>
-        <ContactsList
-          // contacts={outFilter}
-          // onDelete={onDeleteItem}
-        />
+        <ContactsList />
       </Section>
     </DeskPhonebook>
   )
