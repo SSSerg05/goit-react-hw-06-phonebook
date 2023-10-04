@@ -2,18 +2,23 @@
 import { css } from "@emotion/react";
 import { useSelector, useDispatch } from "react-redux"; 
 
+
 import { statusFilters } from "redux/constants"; 
 import { getStatusFilter } from "redux/selectors";
 import { setStatusFilter } from "redux/filtersSlice";
+import { searchContact } from 'redux/contactsSlice';
+
 import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../Form/Form.styled"
 import { Btn, FilterBox } from "./Filter.styled";
 
 
-export const Filter = ({ value, onFilter }) => { 
+export const Filter = ({ value }) => { 
   const dispatch = useDispatch();
   const filter = useSelector(getStatusFilter);
 
   const handleFilterChange = filter => dispatch(setStatusFilter(filter));
+  const handleSearchChange = query => dispatch(searchContact(query))
+
 
   const isSelectedStyle = css({
     backgroundColor: '#1976d2',
@@ -30,7 +35,7 @@ export const Filter = ({ value, onFilter }) => {
           <FieldInput
             type="text"
             value={value}
-            onChange={onFilter}
+            onChange={handleSearchChange}
           />
         </FieldPosition>
       </FieldLabel>
@@ -39,7 +44,6 @@ export const Filter = ({ value, onFilter }) => {
         {
           btn.map((item, index) => {
             const isSelected = (filter === statusFilters[item]);
-            console.log(item, index, isSelected);
             
             return (<Btn 
               css={ isSelected && isSelectedStyle }

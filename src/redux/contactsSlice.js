@@ -27,7 +27,8 @@ const contactsSlice = createSlice({
     },
 
     deleteContact(state, action) {
-      const index = state.findIndex(task => task.id === action.payload);
+      console.log('delete', state, action);
+      const index = state.findIndex(contact => contact.id === action.payload);
       state.splice(index, 1);
     },
 
@@ -39,9 +40,16 @@ const contactsSlice = createSlice({
         }
       }
     },
+
+    searchContact(state, action) {
+      console.log('search',state, action);
+      const value = action.payload?.target?.value.trim().toLowerCase();
+      console.log(value);
+      state.some(contact => contact.name.toLowerCase() === value);
+    }
   },
 });
 
 // Экспортируем генераторы экшенов и редюсер
-export const { addContact, deleteContact, toggleCompleted } = contactsSlice.actions;
+export const { addContact, deleteContact, toggleCompleted, searchContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
