@@ -3,7 +3,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 // data
 import initialContacts from "../data/contactsInitial.json";
 
-const contactsInitialState = initialContacts ?? [];
+const contactsInitialState = initialContacts ?? { contacts: null, filter: "" };
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -21,6 +21,7 @@ const contactsSlice = createSlice({
             name, 
             number,
             selected: false,
+            visible: true,
           },
         };
       },
@@ -45,7 +46,13 @@ const contactsSlice = createSlice({
       console.log('search', state, action);
       state.filter(contact => 
         contact.name.toLowerCase().includes(action.payload))
-    }
+    },
+
+    filterContacts(state, action) {
+      console.log('search', state, action);
+      state.filter(contact => 
+        contact.name.toLowerCase().includes(action.payload))
+    },
   },
 });
 
