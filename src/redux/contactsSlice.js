@@ -42,10 +42,9 @@ const contactsSlice = createSlice({
     },
 
     searchContact(state, action) {
-      console.log('search',state, action);
-      const value = action.payload?.target?.value.trim().toLowerCase();
-      console.log(value);
-      state.some(contact => contact.name.toLowerCase() === value);
+      console.log('search', state, action);
+      state.filter(contact => 
+        contact.name.toLowerCase().includes(action.payload))
     }
   },
 });

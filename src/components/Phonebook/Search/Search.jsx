@@ -9,7 +9,10 @@ import {} from "./Search.styled";
 export const Search = ({value}) => {
   const dispatch = useDispatch();
   
-  const handleSearchChange = query => dispatch(searchContact(query))
+  const handleSearchChange = (e) => {
+    const query = e.currentTarget.value.trim().toLowerCase();
+    return dispatch(searchContact(query))
+  }
 
   return (
     <FieldBox>
