@@ -1,9 +1,12 @@
 import { useSelector, useDispatch } from "react-redux"; 
 
 import { searchContact } from 'redux/contactsSlice';
-import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../Form/Form.styled"
 
-export const Search = () => {
+// style
+import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../Form/Form.styled"
+import {} from "./Search.styled";
+
+export const Search = ({value}) => {
   const dispatch = useDispatch();
   
   const handleSearchChange = query => dispatch(searchContact(query))

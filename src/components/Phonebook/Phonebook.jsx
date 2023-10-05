@@ -75,12 +75,6 @@ export const Phonebook = () => {
   // }
 
 
-  // delete item without ContactsList
-  // const onDeleteItem = (id) => {
-  //   setContacts((prev) => prev.filter(item => item.id !== id) )
-  // }
-
-
   // const outFilter = getVisibleContacts();
   return (
     <DeskPhonebook>
