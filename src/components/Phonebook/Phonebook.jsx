@@ -1,20 +1,16 @@
-// library
-// import React, { useState, useEffect } from "react";
-// import { nanoid } from "nanoid";
 
 // components
 import { Section } from "../Section/Section";
-import { ContactsList } from "./ContactsList/ContactsList";
-import { Filter } from "./Filter/Filter";
 import { Form } from "./Form/Form";
+import { Search } from "./Search/Search";
+import { Filter } from "./Filter/Filter";
+import { ContactsList } from "./ContactsList/ContactsList";
 
 // data
 // import initialContacts from "../../data/contactsInitial.json";
 
 // style
 import { DeskPhonebook } from "./Phonebook.styled";
-
-
 
 
 export const Phonebook = () => {
@@ -93,10 +89,8 @@ export const Phonebook = () => {
       </Section>
         
       <Section>
-        <Filter
-          // value={filter}
-          // onFilter={onChangeFilter}
-        />
+        <Search />
+        <Filter />
       </Section>
       
       <Section title={"Contacts"}>

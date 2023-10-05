@@ -8,16 +8,15 @@ import { getStatusFilter } from "redux/selectors";
 import { setStatusFilter } from "redux/filtersSlice";
 import { searchContact } from 'redux/contactsSlice';
 
-import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../Form/Form.styled"
 import { Btn, FilterBox } from "./Filter.styled";
 
 
-export const Filter = ({ value }) => { 
+export const Filter = () => { 
   const dispatch = useDispatch();
   const filter = useSelector(getStatusFilter);
 
   const handleFilterChange = filter => dispatch(setStatusFilter(filter));
-  const handleSearchChange = query => dispatch(searchContact(query))
+  // const handleSearchChange = query => dispatch(searchContact(query))
 
 
   const isSelectedStyle = css({
@@ -26,19 +25,17 @@ export const Filter = ({ value }) => {
   });
 
   const btn = Object.keys(statusFilters)
-  
-
   return (
-    <FieldBox>
-      <FieldLabel>Find contacts by name
-        <FieldPosition>
-          <FieldInput
-            type="text"
-            value={value}
-            onChange={handleSearchChange}
-          />
-        </FieldPosition>
-      </FieldLabel>
+    // <FieldBox>
+    //   <FieldLabel>Find contacts by name
+    //     <FieldPosition>
+    //       <FieldInput
+    //         type="text"
+    //         value={value}
+    //         onChange={handleSearchChange}
+    //       />
+    //     </FieldPosition>
+    //   </FieldLabel>
 
       <FilterBox>
         {
@@ -58,7 +55,7 @@ export const Filter = ({ value }) => {
         }
       </FilterBox>
 
-    </FieldBox>
+    // </FieldBox>
   );
   
 }
