@@ -67,14 +67,14 @@ export const Phonebook = () => {
   // }
 
 
-  const getVisibleContacts = () => {
-    const nomaliseFilter = filter.toLowerCase();
+  // const getVisibleContacts = () => {
+  //   const nomaliseFilter = filter.toLowerCase();
 
-    return contacts.filter(
-      item => item.name.toLowerCase().includes(nomaliseFilter));
-  }
+  //   return contacts.filter(
+  //     item => item.name.toLowerCase().includes(nomaliseFilter));
+  // }
 
-  const outSearch = getVisibleContacts();
+  // const outSearch = getVisibleContacts();
   return (
     <DeskPhonebook>
       <Section title={"Phonebook: HW-6 Redux"}>
