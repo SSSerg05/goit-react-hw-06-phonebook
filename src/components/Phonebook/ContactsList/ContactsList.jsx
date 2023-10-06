@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { getContacts, getStatusFilter } from 'redux/selectors';
+import { selectContacts, selectStatusFilter } from 'redux/selectors';
 import { statusFilters } from 'redux/constants';
 import { Contact } from '../Contact/Contact';
 import { List, ListItem, } from './ContactsList.styled';
@@ -17,8 +17,8 @@ const getVisibleContacts = (contacts, statusFilter) => {
 };
 
 export const ContactsList = () => { 
-  const contacts = useSelector(getContacts);
-  const statusFilter = useSelector(getStatusFilter);
+  const contacts = useSelector(selectContacts);
+  const statusFilter = useSelector(selectStatusFilter);
   const visibleContacts = getVisibleContacts(contacts, statusFilter);
 
   if (!visibleContacts.length) {
@@ -26,16 +26,6 @@ export const ContactsList = () => {
       <p>Sorry, you don't have more contacts</p>
     )
   }
-
-  // export const selectVisibleContacts = createSelector(
-  //   [ selectContacts, selectFilter],
-  //    (contacts, filter) => {
-  //      return contacts.filter(contact => contact.name.toLowerCase()
-  //       .includes(filter.toLowerCase()))
-  //    }
-  //   )
-
-
 
 
   return (

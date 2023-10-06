@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 import { statusFilters } from "redux/constants"; 
-import { getStatusFilter } from "redux/selectors";
+import { selectStatusFilter } from "redux/selectors";
 import { setStatusFilter } from "redux/filtersSlice";
 
 import { Btn, FilterBox } from "./Filter.styled";
@@ -12,7 +12,7 @@ import { Btn, FilterBox } from "./Filter.styled";
 
 export const Filter = () => { 
   const dispatch = useDispatch();
-  const filter = useSelector(getStatusFilter);
+  const filter = useSelector(selectStatusFilter);
 
   const handleFilterChange = filter => dispatch(setStatusFilter(filter));
   // const handleSearchChange = query => dispatch(searchContact(query))
