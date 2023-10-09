@@ -4,7 +4,7 @@ import { setFindQuery } from "redux/findQuerySlice";
 
 // style
 import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../Form/Form.styled"
-import {} from "./Search.styled";
+
 
 export const Search = ({value}) => {
   const dispatch = useDispatch();
