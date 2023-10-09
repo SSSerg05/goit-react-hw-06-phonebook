@@ -1,21 +1,37 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { addContact } from "redux/contactsSlice";
 import { FieldBox, FieldLabel, FieldPosition, FieldInput, Button } from "./Form.styled"
+import { selectContacts } from "redux/selectors";
 
 
 export const Form = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts)
 
   // onSubmit
   const handleSubmit = e => {
     e.preventDefault();
-    
     const form = e.target;
+    const {name, number} = form.elements;
+
+    const isFound = (name) => {
+      const findName = name.trim().toLowerCase();
+
+      return contacts.some(item => item.name.toLowerCase() === findName)
+    }
+    
+    if (isFound(name.value)) {
+      toast.error(`${name.value} - find in phonebook base`);
+      return;
+    }
+
 
     dispatch(addContact({
-      name: form.elements.name.value, 
-      number: form.elements.number.value
+      name: name.value, 
+      number: number.value
     }));
 
     form.reset();
