@@ -3,11 +3,12 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 // data
 import initialContacts from "../data/contactsInitial.json";
 
-const contactsInitialState = { 
-  contacts: initialContacts ?? null,
-  loading: false,
-  error: false,
-};
+const contactsInitialState = initialContacts ?? null;
+// { 
+//   contacts: initialContacts ?? null,
+//   loading: false,
+//   error: false,
+// };
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -46,15 +47,9 @@ const contactsSlice = createSlice({
       }
     },
 
-    searchContact(state, action) {
-      console.log('search', state, action);
-      state.filter(contact => 
-        contact.name.toLowerCase().includes(action.payload))
-    },
-
   },
 });
 
 // Экспортируем генераторы экшенов и редюсер
-export const { addContact, deleteContact, toggleCompleted, searchContact } = contactsSlice.actions;
+export const { addContact, deleteContact, toggleCompleted, } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

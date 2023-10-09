@@ -1,25 +1,11 @@
 import { useSelector } from 'react-redux';
 
-import { selectContacts, selectStatusFilter } from 'redux/selectors';
-import { statusFilters } from 'redux/constants';
+import { selectVisibleContacts } from 'redux/selectors';
 import { Contact } from '../Contact/Contact';
 import { List, ListItem, } from './ContactsList.styled';
 
-const getVisibleContacts = (contacts, statusFilter) => {
-  switch (statusFilter) {
-    case statusFilters.active:
-      return contacts.filter(contact => !contact.selected);
-    case statusFilters.selected:
-      return contacts.filter(contact => contact.selected);
-    default:
-      return contacts;
-  }
-};
-
 export const ContactsList = () => { 
-  const contacts = useSelector(selectContacts);
-  const statusFilter = useSelector(selectStatusFilter);
-  const visibleContacts = getVisibleContacts(contacts, statusFilter);
+  const visibleContacts = useSelector(selectVisibleContacts);
 
   if (!visibleContacts.length) {
     return (

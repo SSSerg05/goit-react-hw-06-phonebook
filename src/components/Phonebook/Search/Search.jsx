@@ -1,7 +1,5 @@
-import { useSelector, useDispatch } from "react-redux"; 
+import { useDispatch } from "react-redux"; 
 
-// import { searchContact } from 'redux/contactsSlice';
-import { selectFindQuery } from "redux/selectors";
 import { setFindQuery } from "redux/findQuerySlice";
 
 // style
@@ -10,9 +8,6 @@ import {} from "./Search.styled";
 
 export const Search = ({value}) => {
   const dispatch = useDispatch();
-  const find = useSelector(selectFindQuery);
-
-
 
   const handleSearchChange = (e) => {
     const query = e.currentTarget.value.trim().toLowerCase();
