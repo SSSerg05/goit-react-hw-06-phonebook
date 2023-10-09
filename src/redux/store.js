@@ -23,17 +23,17 @@ const contactsConfig = {
   whitelist: ['items'],
 }
 
-// const filtersConfig = {
-//   key: 'filters',
-//   storage,
-//   whitelist: ['filters.status'],
-// }
+const filtersConfig = {
+  key: 'filters',
+  storage,
+  whitelist: ['status'],
+}
 
 // redux-persist + store
 export const store = configureStore({
   reducer: {
     contacts: persistReducer(contactsConfig, contactsReducer),
-    filters: filtersReducer,
+    filters: persistReducer(filtersConfig, filtersReducer),
     findQuery: findQueryReducer,
   },
   middleware: getDefaultMiddleware => 
