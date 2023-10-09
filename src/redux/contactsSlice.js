@@ -3,8 +3,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 // data
 import initialContacts from "../data/contactsInitial.json";
 
-const contactsInitialState = //initialContacts ?? null;
-{ 
+const contactsInitialState = { 
   items: initialContacts ?? [],
   loading: false,
   error: false,
@@ -16,7 +15,7 @@ const contactsSlice = createSlice({
   reducers: {
     addContact: {
       reducer(state, action) {
-        state.push(action.payload);
+        state.items.push(action.payload);
       },
 
       prepare({name, number}) {
@@ -26,20 +25,18 @@ const contactsSlice = createSlice({
             name, 
             number,
             selected: false,
-            visible: true,
           },
         };
       },
     },
 
     deleteContact(state, action) {
-      console.log('delete', state, action);
-      const index = state.findIndex(contact => contact.id === action.payload);
-      state.splice(index, 1);
+      const index = state.items.findIndex(contact => contact.id === action.payload);
+      state.items.splice(index, 1);
     },
 
     toggleCompleted(state, action) {
-      for (const contact of state) {
+      for (const contact of state.items) {
         if (contact.id === action.payload) {
           contact.selected = !contact.selected;
           break;
@@ -47,8 +44,8 @@ const contactsSlice = createSlice({
       }
     },
 
-    setLoading: (state, {payload}) => {
-      state.loading = payload;
+    setLoading: (state, action) => {
+      state.loading = action.payload;
     },
 
     setError: (state, action) => {
